@@ -23,6 +23,7 @@ public class PaperOnboardingFragment extends Fragment {
     private PaperOnboardingOnChangeListener mOnChangeListener;
     private PaperOnboardingOnRightOutListener mOnRightOutListener;
     private PaperOnboardingOnLeftOutListener mOnLeftOutListener;
+    private View.OnClickListener mActionButtonClickedListener;
     private ArrayList<PaperOnboardingPage> mElements;
 
 
@@ -53,6 +54,7 @@ public class PaperOnboardingFragment extends Fragment {
         mPaperOnboardingEngine.setOnChangeListener(mOnChangeListener);
         mPaperOnboardingEngine.setOnLeftOutListener(mOnLeftOutListener);
         mPaperOnboardingEngine.setOnRightOutListener(mOnRightOutListener);
+        mPaperOnboardingEngine.setActionButtonListener(mActionButtonClickedListener);
 
         return view;
     }
@@ -75,6 +77,10 @@ public class PaperOnboardingFragment extends Fragment {
 
     public void setOnLeftOutListener(PaperOnboardingOnLeftOutListener onLeftOutListener) {
         this.mOnLeftOutListener = onLeftOutListener;
+    }
+
+    public void setOnActionButtonClickedListener(View.OnClickListener onActionButtonClickedListener) {
+        this.mActionButtonClickedListener = onActionButtonClickedListener;
     }
 
 }

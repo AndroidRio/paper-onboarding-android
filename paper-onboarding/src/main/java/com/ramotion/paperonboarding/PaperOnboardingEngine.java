@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -46,6 +47,7 @@ public class PaperOnboardingEngine implements PaperOnboardingEngineDefaults {
 
     private final RelativeLayout mContentRootLayout;
     private final LinearLayout mContentCenteredContainer;
+    private final Button mActionButton;
 
     // application context
     private final Context mAppContext;
@@ -84,6 +86,7 @@ public class PaperOnboardingEngine implements PaperOnboardingEngineDefaults {
         mContentIconContainer = (FrameLayout) rootLayout.findViewById(R.id.onboardingContentIconContainer);
         mBackgroundContainer = (FrameLayout) rootLayout.findViewById(R.id.onboardingBackgroundContainer);
         mPagerIconsContainer = (LinearLayout) rootLayout.findViewById(R.id.onboardingPagerIconsContainer);
+        mActionButton = (Button) rootLayout.findViewById(R.id.onboardingActionButton);
 
         mContentRootLayout = (RelativeLayout) mRootLayout.getChildAt(1);
         mContentCenteredContainer = (LinearLayout) mContentRootLayout.getChildAt(0);
@@ -249,6 +252,10 @@ public class PaperOnboardingEngine implements PaperOnboardingEngineDefaults {
 
     public void setOnLeftOutListener(PaperOnboardingOnLeftOutListener onLeftOutListener) {
         this.mOnLeftOutListener = onLeftOutListener;
+    }
+
+    public void setActionButtonListener(View.OnClickListener onClickListener) {
+        mActionButton.setOnClickListener(onClickListener);
     }
 
     /**
